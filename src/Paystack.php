@@ -198,9 +198,9 @@ class Paystack
     /**
      * Hit Paystack Gateway to Verify that the transaction is valid
      */
-    private function verifyTransactionAtGateway()
+    private function verifyTransactionAtGateway($trxref = null)
     {
-        $transactionRef = request()->query('trxref');
+        $transactionRef = $trxref ?? request()->query('trxref');
 
         $relativeUrl = "/transaction/verify/{$transactionRef}";
 
